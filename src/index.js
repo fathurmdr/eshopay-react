@@ -4,10 +4,40 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { createBrowserHistory } from 'history';
+import { BrowserRouter } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async';
+
+// for API
+// import storeToolkit from './features/storeToolkit';
+// import { Provider } from 'react-redux';
+
+const browserHistory = createBrowserHistory();
+
+browserHistory.listen(location => {
+  // Use setTimeout to make sure this runs after React Router's own listener
+  setTimeout(() => {
+    // Keep default behavior of restoring scroll position when user:
+    // - clicked back button
+    // - clicked on a link that programmatically calls `history.goBack()`
+    // - manually changed the URL in the address bar (here we might want
+    // to scroll to top, but we can't differentiate it from the others)
+    if (location.action === 'POP') {
+      return;
+    }
+    // In all other cases, scroll to top
+    window.scrollTo(0, 0);
+  });
+});
+
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <HelmetProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </HelmetProvider>
+,
   document.getElementById('root')
 );
 
