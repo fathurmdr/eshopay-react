@@ -38,7 +38,7 @@ export default function DashboardLayout() {
     const [sidebarOpen, setSidebarOpen] = useState(false)
 
     return(
-        <div className="h-screen flex overflow-hidden bg-blue-200">
+        <div className="h-screen flex overflow-hidden bg-gray-100">
 
             {/* Static sidebar for desktop */}
             <div className="hidden lg:flex lg:flex-shrink-0">
@@ -57,7 +57,7 @@ export default function DashboardLayout() {
                             {({open})=>(
                                 <>
                                     <div>
-                                        <Menu.Button className="group w-full bg-blue-200 rounded-md px-3.5 py-2 text-sm text-left font-medium hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-500">
+                                        <Menu.Button className="group w-full bg-blue-600 rounded-md px-3.5 py-2 text-sm text-left font-medium hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-500">
                                             <span className="flex w-full justify-between items-center">
                                                 <span className="flex min-w-0 items-center justify-between space-x-3">
                                                     <img
@@ -66,8 +66,8 @@ export default function DashboardLayout() {
                                                         alt=""
                                                     />
                                                     <span className="flex-1 flex flex-col min-w-0">
-                                                        <span className="text-blue-1000 text-sm font-medium truncate">Fathu Rahman</span>
-                                                        <span className="text-gray-500 group-hover:text-gray-200 text-sm truncate">@fathurahman</span>
+                                                        <span className="text-gray-100 text-sm font-medium truncate">Fathu Rahman</span>
+                                                        <span className="text-gray-200 group-hover:text-gray-100 text-sm truncate">@fathurahman</span>
                                                     </span>
                                                 </span>
                                                 <SelectorIcon
@@ -213,14 +213,14 @@ export default function DashboardLayout() {
                                         key={item.name}
                                         to={item.href}
                                         className={classNames(
-                                            item.current ? 'bg-blue-200 text-blue-900' : 'text-blue-900 hover:text-blue-900 hover:bg-blue-200',
+                                            item.current ? 'bg-blue-600 text-gray-100' : 'text-blue-900 hover:text-gray-100 hover:bg-blue-600',
                                             'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
                                         )}
                                         aria-current={item.current ? 'page' : undefined}
                                     >
                                         <item.icon
                                             className={classNames(
-                                                item.current ? 'text-blue-900' : 'text-blue-900 group-hover:text-blue-900',
+                                                item.current ? 'text-gray-200' : 'text-blue-900 group-hover:text-gray-200',
                                                 'mr-3 flex-shrink-0 h-6 w-6'
                                             )}
                                             aria-hidden="true"
@@ -238,7 +238,7 @@ export default function DashboardLayout() {
             {/* Main column */}
             <div className="flex flex-col w-0 flex-1 overflow-hidden">
                 {/* Search header */}
-                <div className="relative z-0 flex-shrink-0 flex h-12 sm:h-16 bg-blue-400 border-b border-blue-300 lg:hidden">
+                <div className="relative z-10 flex-shrink-0 flex h-12 sm:h-16 bg-blue-400 border-b border-blue-300 lg:hidden">
                     <button
                         className="px-4 border-r border-blue-500 rounded-sm text-blue-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600 lg:hidden"
                         onClick={() => setSidebarOpen(true)}
@@ -388,7 +388,7 @@ export default function DashboardLayout() {
                         </div>
                     </div>
                 </div>
-                <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none">
+                <main className="flex-1 relative overflow-y-auto focus:outline-none">
                     {/* Page title & actions */}
                     <Outlet />
                 </main>
@@ -457,14 +457,14 @@ export default function DashboardLayout() {
                                                 key={item.name}
                                                 to={item.href}
                                                 className={classNames(
-                                                    item.current ? 'bg-blue-200 text-blue-900' : 'text-blue-900 hover:text-blue-900 hover:bg-blue-200',
+                                                    item.current ? 'bg-blue-600 text-gray-100' : 'text-blue-900 hover:text-gray-100 hover:bg-blue-600',
                                                     'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
                                                 <item.icon
                                                     className={classNames(
-                                                        item.current ? 'text-blue-900' : 'text-blue-900 group-hover:text-blue-900',
+                                                        item.current ? 'text-gray-200' : 'text-blue-900 group-hover:text-gray-200',
                                                         'mr-3 flex-shrink-0 h-6 w-6'
                                                     )}
                                                     aria-hidden="true"
